@@ -30,8 +30,13 @@ function display(pokemon) {
                     parent.appendChild(pokemonCard);
                     let pokeImg = document.createElement('img');
                     pokeImg.src = pokemon.sprites.back_shiny;
+                    pokeImg.classList.add('pokeImg');
                     pokemonCard.appendChild(pokeImg); 
                     console.log(pokemon.name);
+                    let logoImg = document.createElement('img');
+                    logoImg.classList.add('logo');
+                    logoImg.src = "./assets/img/logo.png";
+                    pokemonCard.appendChild(logoImg);
     // Stocker la fonction anonyme dans une variable nommée submitHandler
     let submitHandler = function() {
         compare(pokemon);
@@ -56,8 +61,13 @@ parent.innerHTML = '';
     pokemonCard.classList.add('card');
     parent.appendChild(pokemonCard);
     let pokeImg = document.createElement('img');
+    pokeImg.classList.add('pokeImg');
     pokeImg.src = pokemonBase.sprites.front_shiny;
     pokemonCard.appendChild(pokeImg);
+    let logoImg = document.createElement('img');
+    logoImg.classList.add('logo');
+    logoImg.src = "./assets/img/logo.png";
+    pokemonCard.appendChild(logoImg);
     let displayAnswer = document.createElement('div');
     displayAnswer.classList.add('display-answer');
     parent.appendChild(displayAnswer);

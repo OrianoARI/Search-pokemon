@@ -9,7 +9,12 @@
 }
 
 body {
-    background: linear-gradient(90deg, red , yellow);
+    background: rgb(232, 225, 13);
+    margin: 0;
+}
+
+main {
+    background-color: rgb(70, 70, 192);
 }
 
 
@@ -24,14 +29,20 @@ body {
 }
 
 .form input {
-    width: 100%;
+    text-align: center;
+    width: 20%;
+    align-items: center;
     color: red;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
     border: 2px solid orange;
     border-radius: 20px;
     padding: 5px;
     background-color: yellow;
+
 }
+
+
 
 .form input::placeholder {
     color: red;
@@ -40,13 +51,15 @@ body {
 }
 
 h1 {
-    font-family: pokesolid;
-    margin: 20px;
-    font-size: 50px;
+    font-family: pokehollow;
+    margin: auto;
+    padding: auto;
+    margin: 10px;
+    font-size: 80px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 5px 5px 5px rgba(129, 34, 0, 0.641);
-    color: rgb(129, 35, 0);
+    color: rgb(0, 45, 129);
 }
 
 .card h2 {
@@ -56,23 +69,41 @@ h1 {
 
 
 .card {
-    background-color: rgba(255, 255, 0, 0.704);
-    border: 5px solid orange;
-    border-radius: 60px;
-    box-shadow: 20px 20px 20px rgba(255, 166, 0, 0.695);
-    text-align: center;
-    width: 30%;
-    margin: 20px;
+    background-image: url(../img/flash.png);
+    background-repeat: no-repeat;
+    background-position-x: -800px;
+    background-position-y: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.card img {
-    width: 100%;
+.card .pokeImg {
+    margin: 0;
+    flex: 1;
+}
+
+
+.card .logo {
+    margin: 0 auto;
+    flex: 1;
+
+
+
 }
 
 #pokeCard {
+    margin: auto;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
+    border: 5px ridge rgba(0, 0, 255, 0.386);
+    background-color: red;
+    width: 60vw;
+    height: 60vh;
+
 }
 
 .container {
