@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: red;
+    background: linear-gradient(90deg, red , yellow);
 }
 
 
@@ -39,10 +39,14 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-label {
+h1 {
     font-family: pokesolid;
     margin: 20px;
-    font-size: 25px;
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px rgba(129, 34, 0, 0.641);
+    color: rgb(129, 35, 0);
 }
 
 .card h2 {
@@ -52,18 +56,23 @@ label {
 
 
 .card {
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.704);
     border: 5px solid orange;
     border-radius: 60px;
+    box-shadow: 20px 20px 20px rgba(255, 166, 0, 0.695);
     text-align: center;
     width: 30%;
     margin: 20px;
+}
 
+.card img {
+    width: 100%;
 }
 
 #pokeCard {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
@@ -71,7 +80,7 @@ label {
     flex-direction: column;
 }
 
-.btn {
+button {
     margin: 20px auto 20px auto;
     border-radius: 20px;
     padding: 10px;

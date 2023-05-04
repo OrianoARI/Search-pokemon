@@ -1,57 +1,82 @@
 
-let pokemon = document.querySelector('#pokemon');
 let submit = document.querySelector('#submitBtn');
+let pokeCard = document.querySelector('#pokeCard');
 
 
-submit.addEventListener('click', () => {
-    getPokemon(pokemon.value);
-})
+let openBall = document.querySelector('#open');
+// let pokemonBase ;
+openBall.addEventListener('click', () => {
+    document.querySelector("#pokeCard").innerHTML = "";
+    document.querySelector('#playerAnswer').value= '';
+getPokemon()
+});
 
+async function getPokemon() {
+    let pokemonNbr = Math.floor(Math.random() * 1008);
+    console.log(pokemonNbr);
+    let pokemonRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNbr}`)
+           pokemonRes = await pokemonRes.json();
+           display(pokemonRes);
+                    
+                               
+}
 
-
-
-function getPokemon(name) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        .then(data => {
-            data.json()
-                .then(res => {   
-                    console.log(res);     
-                    let parent = document.querySelector("#pokeCard");
+function display(pokemon) {
+    pokemonBase = pokemon;
                    // parent.innerHTML = '';
                     let pokemonCard = document.createElement('div');
+                    let parent = document.querySelector("#pokeCard");
                     pokemonCard.classList.add('card');
                     parent.appendChild(pokemonCard);
-                    let pokenName = document.createElement('h2');
-                    pokenName.textContent = res.name;
-                    pokemonCard.appendChild(pokenName);
                     let pokeImg = document.createElement('img');
-                    pokeImg.src = res.sprites.front_shiny;
-                    pokemonCard.appendChild(pokeImg);
-                    let pokeInfo = document.createElement('p');
-                    pokeInfo.textContent = res.types[0].type.name;
-                    pokemonCard.appendChild(pokeInfo);
-                    let pokeAbilities = document.createElement('p');
-                    pokeAbilities.textContent = res.abilities[0].ability.name;
-                    pokemonCard.appendChild(pokeAbilities);
-                    let pokeAbilitiesTwo = document.createElement('p');
-                    pokeAbilitiesTwo.textContent = res.abilities[1].ability.name;
-                    pokemonCard.appendChild(pokeAbilitiesTwo);
-                    let pokeStats = document.createElement('p');
-                    pokeStats.textContent = res.stats[0].base_stat;
-                    pokemonCard.appendChild(pokeStats);
-                    let pokeMoves = document.createElement('p');
-                    pokeMoves.textContent = res.moves[0].move.name;
-                    pokemonCard.appendChild(pokeMoves);
-                    let pokeMovesTwo = document.createElement('p');
-                    pokeMovesTwo.textContent = res.moves[1].move.name;
-                    pokemonCard.appendChild(pokeMovesTwo);
-                    let pokeMovesThree = document.createElement('p');
-                    pokeMovesThree.textContent = res.moves[2].move.name;
-                    pokemonCard.appendChild(pokeMovesThree);
-                    
-                })
-        })
+                    pokeImg.src = pokemon.sprites.back_shiny;
+                    pokemonCard.appendChild(pokeImg); 
+                    console.log(pokemon.name);
+    // Stocker la fonction anonyme dans une variable nommée submitHandler
+    let submitHandler = function() {
+        compare(pokemon);
+        submit.removeEventListener('click', submitHandler);
+    };
+
+    submit.addEventListener('click', submitHandler);
+
+
+ 
 }
+
+function compare(pokemonBase) {
+    let playerAnswer = document.querySelector('#playerAnswer').value;
+    let  = document.querySelector('.display-answer');
+if (playerAnswer === pokemonBase.name) {
+    
+
+let parent = document.querySelector("#pokeCard");
+parent.innerHTML = '';
+    let pokemonCard = document.createElement('div');
+    pokemonCard.classList.add('card');
+    parent.appendChild(pokemonCard);
+    let pokeImg = document.createElement('img');
+    pokeImg.src = pokemonBase.sprites.front_shiny;
+    pokemonCard.appendChild(pokeImg);
+    let displayAnswer = document.createElement('div');
+    displayAnswer.classList.add('display-answer');
+    parent.appendChild(displayAnswer);
+    let goodAnswer = document.createElement('p');
+    goodAnswer.textContent = `Bravo! C'est bien ${pokemonBase.name}! Lancez une nouvelle Pokéball!`;
+    displayAnswer.appendChild(goodAnswer);
+}else{
+    let parent = document.querySelector("#pokeCard");
+    let displayAnswer = document.createElement('div');
+    displayAnswer.classList.add('display-answer');
+    parent.appendChild(displayAnswer);
+    let badAnswer = document.createElement('p');
+    badAnswer.textContent = `Perdu! C'était ${pokemonBase.name}! Lancez une nouvelle Pokéball!`;
+    displayAnswer.appendChild(badAnswer);
+}
+}
+
+
+
 
 
 

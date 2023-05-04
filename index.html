@@ -10,31 +10,37 @@
 </head>
 
 <body>
+    <header>
+
+        <h1>Quel est ce Pokemon?</h1>
+    </header>
     <main>
-    <div class="container">
-        <div>
-            <form action="" method="get">
-                <div class="form">
-                    <label for="pokemon" class="form-label">Rechercher un Pokemon</label>
-                    <input type="text" class="form-input" name="name" id="pokemon"
-                        placeholder="Entrer un nom de Pokemon">
-                </div>
+        <div class="container">
+
+            <button id="open">Ouvre ta Pokeball</button>
+
+            <div>
+                <form action="" method="get">
+                    <div class="form">
+                        <input type="text" class="form-input" name="playerAnswer" id="playerAnswer"
+                            placeholder="Entrer un nom de Pokemon">
+                    </div>
+            </div>
+            <button type="button" name="button" id="submitBtn" class="btn">Valider</button>
+            </form>
         </div>
-        <button type="button" name="button" id="submitBtn" class="btn">Rechercher</button>
-        </form>
-    </div>
 
 
 
-    <div id="pokeCard">
+        <div id="pokeCard">
 
 
-    </div>
+        </div>
 
+        </div class="display-answer">
 
-
-
-</main>
+        </div>
+    </main>
     <script src="assets/js/main.js"></script>
 
 </body>
