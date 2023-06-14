@@ -8,30 +8,45 @@
     src: url(../fonts/Pokemon\ Solid.ttf);
 }
 
-body {
-    background: rgb(232, 225, 13);
+html {
+    height: 100%;
+    background: rgb(232, 255, 0);
+    background: linear-gradient(180deg, rgba(232, 255, 0, 1) 30%, rgba(66, 53, 255, 1) 68%);
     margin: 0;
 }
 
-main {
-    background-color: rgb(70, 70, 192);
+
+
+body {
+    background: rgb(232, 255, 0);
+    background: linear-gradient(180deg, rgba(232, 255, 0, 1) 30%, rgba(66, 53, 255, 1) 68%);
+    margin: 0;
 }
 
+
+#open {
+    width: 100px;
+}
 
 #pokemon {
     width: 500px;
 }
 
-.form {
+.img {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+.form {
+    margin: 30px;
+    justify-content: space-around;
     align-items: center;
+    text-align: center;
 }
 
 .form input {
     text-align: center;
-    width: 20%;
-    align-items: center;
+    width: 50%;
     color: red;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
@@ -39,7 +54,12 @@ main {
     border-radius: 20px;
     padding: 5px;
     background-color: yellow;
+    vertical-align: middle;
 
+}
+
+.form input:focus {
+    outline-color: red;
 }
 
 
@@ -52,10 +72,9 @@ main {
 
 h1 {
     font-family: pokehollow;
-    margin: auto;
+    margin: 0;
     padding: auto;
-    margin: 10px;
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 5px 5px 5px rgba(129, 34, 0, 0.641);
@@ -82,41 +101,159 @@ h1 {
 
 .card .pokeImg {
     margin: 0;
-    flex: 1;
+    width: 50%;
 }
 
 
 .card .logo {
-    margin: 0 auto;
-    flex: 1;
+    margin: 0;
+    width: 50%;
+}
 
-
-
+.invisible {
+    display: none;
 }
 
 #pokeCard {
     margin: auto;
-
     display: flex;
     flex-direction: column;
-    border: 5px ridge rgba(0, 0, 255, 0.386);
-    background-color: red;
-    width: 60vw;
-    height: 60vh;
+    border: none;
+    width: 50vw;
+    height: 50vh;
 
 }
 
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-button {
-    margin: 20px auto 20px auto;
+
+.btn {
+    vertical-align: middle;
     border-radius: 20px;
     padding: 10px;
+    border-color: orange;
     background-color: yellow;
     color: red;
     font-style: italic;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.btn:focus {
+    border-color: red;
+}
+
+.display-answer {
+    font-family: pokesolid;
+}
+
+.display-answer p {
+    margin: 0;
+    color: yellow;
+    text-align: center;
+}
+
+/* animation Pokebal */
+
+.pokeball {
+    /* -webkit-animation:shake 2s cubic-bezier(0.60,1,0.70,0) 1s infinite normal;
+    -moz-animation:shake 2s cubic-bezier(0.60,1,0.70,0) 1s infinite normal;
+    -ms-animation:shake 2s cubic-bezier(0.60,1,0.70,0) 1s infinite normal; */
+    animation: shake 2s cubic-bezier(0.60, 1, 0.70, 0) 1s infinite normal;
+}
+
+/* @-webkit-keyframes shake {
+    0%{ transform: rotate(-15deg); -webkit-transform: rotate(-15deg); }
+    2%{ transform: rotate(15deg); -webkit-transform: rotate(15deg); }
+    4%{ transform: rotate(-18deg); -webkit-transform: rotate(-18deg); }
+    6%{ transform: rotate(18deg); -webkit-transform: rotate(18deg); }
+    8%{ transform: rotate(-22deg); -webkit-transform: rotate(-22deg); }
+    10%{ transform: rotate(22deg); -webkit-transform: rotate(22deg); }
+    12%{ transform: rotate(-18deg); -webkit-transform: rotate(-18deg); }
+    14%{ transform: rotate(18deg); -webkit-transform: rotate(18deg); }
+    16%{ transform: rotate(-12deg); -webkit-transform: rotate(-12deg); }
+    18%{ transform: rotate(-12deg); -webkit-transform: rotate(-12deg); }
+    20%{ transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+    }
+     */
+@keyframes shake {
+    0% {
+        transform: rotate(-15deg);
+        -ms-transform: rotate(-15deg);
+    }
+
+    2% {
+        transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+    }
+
+    4% {
+        transform: rotate(-18deg);
+        -ms-transform: rotate(-18deg);
+    }
+
+    6% {
+        transform: rotate(18deg);
+        -ms-transform: rotate(18deg);
+    }
+
+    8% {
+        transform: rotate(-22deg);
+        -ms-transform: rotate(-22deg);
+    }
+
+    10% {
+        transform: rotate(22deg);
+        -ms-transform: rotate(22deg);
+    }
+
+    12% {
+        transform: rotate(-18deg);
+        -ms-transform: rotate(-18deg);
+    }
+
+    14% {
+        transform: rotate(18deg);
+        -ms-transform: rotate(-18deg);
+    }
+
+    16% {
+        transform: rotate(-12deg);
+        -ms-transform: rotate(-12deg);
+    }
+
+    18% {
+        transform: rotate(-12deg);
+        -ms-transform: rotate(-12deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+    }
+}
+
+@media (max-width:820px) {
+
+    h1{
+        font-size: 30px;
+    }
+
+    #pokeCard {
+        height: 40vw;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form input {
+        width: 100%;
+        margin-bottom: 20px;
+        flex: 1;
+    }
 }

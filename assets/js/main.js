@@ -24,6 +24,10 @@ async function getPokemon() {
 function display(pokemon) {
     pokemonBase = pokemon;
                    // parent.innerHTML = '';
+                   if (pokemon){
+                    pokeCard.style.backgroundColor = 'red';
+                    pokeCard.style.border = '5px ridge rgba(0, 0, 255, 0.386)';                    
+                   }
                     let pokemonCard = document.createElement('div');
                     let parent = document.querySelector("#pokeCard");
                     pokemonCard.classList.add('card');
@@ -86,7 +90,15 @@ parent.innerHTML = '';
 }
 
 
+// async function test(){
 
+// let test = await fetch ("http://localhost:3000/test");
+// test = await test.json();
+
+// console.log(test);
+// }
+
+// test();
 
 
 

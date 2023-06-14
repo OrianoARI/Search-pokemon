@@ -15,20 +15,20 @@
         <h1>Quel est ce Pokemon?</h1>
     </header>
     <main>
-        
+
         <div class="container">
-
-            <button id="open">Ouvre ta Pokeball</button>
-
-            <div>
+            <div class="img">
+                <img id="open" class="pokeball" src="./assets/img/pokeball.png" alt="">
+            </div>
+            <div class="container">
                 <form action="" method="get">
                     <div class="form">
                         <input type="text" class="form-input" name="playerAnswer" id="playerAnswer"
                             placeholder="Entrer un nom de Pokemon">
+                        <button type="button" name="button" id="submitBtn" class="btn">Valider</button>
                     </div>
+                </form>
             </div>
-            <button type="button" name="button" id="submitBtn" class="btn">Valider</button>
-            </form>
         </div>
 
 
@@ -41,7 +41,7 @@
         </div class="display-answer">
 
         </div>
-        
+
     </main>
     <script src="assets/js/main.js"></script>
 
