@@ -1,7 +1,7 @@
 
 let submit = document.querySelector('#submitBtn');
 let pokeCard = document.querySelector('#pokeCard');
-
+let isLoading = false;
 
 let openBall = document.querySelector('#open');
 // let pokemonBase ;
@@ -12,11 +12,16 @@ getPokemon()
 });
 
 async function getPokemon() {
-    let pokemonNbr = Math.floor(Math.random() * 1008);
-    console.log(pokemonNbr);
-    let pokemonRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNbr}`)
-           pokemonRes = await pokemonRes.json();
-           display(pokemonRes);
+    if (!isLoading) {
+        let pokemonNbr = Math.floor(Math.random() * 1008);
+        console.log(pokemonNbr);
+    isLoading = true;
+        let pokemonRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNbr}`)
+        pokemonRes = await pokemonRes.json();
+        display(pokemonRes);
+        isLoading = false;      
+    }
+    
                     
                                
 }
@@ -24,6 +29,7 @@ async function getPokemon() {
 function display(pokemon) {
     pokemonBase = pokemon;
                    // parent.innerHTML = '';
+                   
                    if (pokemon){
                     pokeCard.style.backgroundColor = 'red';
                     pokeCard.style.border = '5px ridge rgba(0, 0, 255, 0.386)';                    
@@ -56,22 +62,21 @@ function display(pokemon) {
 function compare(pokemonBase) {
     let playerAnswer = document.querySelector('#playerAnswer').value;
     let  = document.querySelector('.display-answer');
-if (playerAnswer === pokemonBase.name) {
-    
-
-let parent = document.querySelector("#pokeCard");
+    let parent = document.querySelector("#pokeCard");
 parent.innerHTML = '';
-    let pokemonCard = document.createElement('div');
-    pokemonCard.classList.add('card');
-    parent.appendChild(pokemonCard);
-    let pokeImg = document.createElement('img');
-    pokeImg.classList.add('pokeImg');
-    pokeImg.src = pokemonBase.sprites.front_shiny;
-    pokemonCard.appendChild(pokeImg);
-    let logoImg = document.createElement('img');
-    logoImg.classList.add('logo');
-    logoImg.src = "./assets/img/logo.png";
-    pokemonCard.appendChild(logoImg);
+let pokemonCard = document.createElement('div');
+pokemonCard.classList.add('card');
+parent.appendChild(pokemonCard);
+let pokeImg = document.createElement('img');
+pokeImg.classList.add('pokeImg');
+pokeImg.src = pokemonBase.sprites.front_shiny;
+pokemonCard.appendChild(pokeImg);
+let logoImg = document.createElement('img');
+logoImg.classList.add('logo');
+logoImg.src = "./assets/img/logo.png";
+pokemonCard.appendChild(logoImg);
+if (playerAnswer === pokemonBase.name) {
+   
     let displayAnswer = document.createElement('div');
     displayAnswer.classList.add('display-answer');
     parent.appendChild(displayAnswer);
@@ -79,7 +84,6 @@ parent.innerHTML = '';
     goodAnswer.textContent = `Bravo! C'est bien ${pokemonBase.name}! Lancez une nouvelle Pokéball!`;
     displayAnswer.appendChild(goodAnswer);
 }else{
-    let parent = document.querySelector("#pokeCard");
     let displayAnswer = document.createElement('div');
     displayAnswer.classList.add('display-answer');
     parent.appendChild(displayAnswer);
@@ -117,7 +121,16 @@ parent.innerHTML = '';
 // // appel API méthode async await
 
 
+// let openBall = document.querySelector('#open');
 
+// let openHandler = function() {
+//     document.querySelector("#pokeCard").innerHTML = "";
+//     document.querySelector('#playerAnswer').value= "";
+// getPokemon()
+// openBall.removeEventListener('click', openHandler);
+// };
+
+// openBall.addEventListener('click', openHandler);
 
 
 

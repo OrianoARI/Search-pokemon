@@ -70,11 +70,15 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+header{
+    width: 100vw;
+}
+
 h1 {
     font-family: pokehollow;
     margin: 0;
     padding: auto;
-    font-size: 60px;
+    font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 5px 5px 5px rgba(129, 34, 0, 0.641);
@@ -120,7 +124,8 @@ h1 {
     flex-direction: column;
     border: none;
     width: 50vw;
-    height: 50vh;
+    min-height: 40vh;
+    max-height: max-content;
 
 }
 
@@ -239,9 +244,8 @@ h1 {
 @media (max-width:820px) {
 
     h1{
-        font-size: 30px;
+        font-size: 2rem;
     }
-
     #pokeCard {
         height: 40vw;
     }
