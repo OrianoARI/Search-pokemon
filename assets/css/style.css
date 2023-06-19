@@ -38,7 +38,7 @@ body {
 }
 
 .form {
-    margin: 30px;
+    margin: 10px;
     justify-content: space-around;
     align-items: center;
     text-align: center;
@@ -76,7 +76,7 @@ header{
 
 h1 {
     font-family: pokehollow;
-    margin: 0;
+    margin: 20px 0 0 0;
     padding: auto;
     font-size: 3rem;
     text-align: center;

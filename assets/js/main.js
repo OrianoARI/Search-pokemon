@@ -39,7 +39,7 @@ function display(pokemon) {
                     pokemonCard.classList.add('card');
                     parent.appendChild(pokemonCard);
                     let pokeImg = document.createElement('img');
-                    pokeImg.src = pokemon.sprites.back_shiny;
+                    pokeImg.src = pokemon.sprites.back_default;
                     pokeImg.classList.add('pokeImg');
                     pokemonCard.appendChild(pokeImg); 
                     console.log(pokemon.name);
@@ -69,7 +69,7 @@ pokemonCard.classList.add('card');
 parent.appendChild(pokemonCard);
 let pokeImg = document.createElement('img');
 pokeImg.classList.add('pokeImg');
-pokeImg.src = pokemonBase.sprites.front_shiny;
+pokeImg.src = pokemonBase.sprites.front_default;
 pokemonCard.appendChild(pokeImg);
 let logoImg = document.createElement('img');
 logoImg.classList.add('logo');
