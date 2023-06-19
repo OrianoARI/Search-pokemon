@@ -244,6 +244,7 @@ h1 {
 @media (max-width:820px) {
 
     h1{
+        margin: 20px 0 0 0;
         font-size: 2rem;
     }
     #pokeCard {
